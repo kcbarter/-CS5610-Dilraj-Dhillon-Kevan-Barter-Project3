@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 
 //Setup MongoDB Connection
-mongoose.connect('mongodb://127.0.0.1/pokemon_app', { useNewUrlParser: true })
+mongoose.connect('mongodb://127.0.0.1:27017/pokemon_app', { useNewUrlParser: true })
 
 const mongoDB = mongoose.connection;
 
