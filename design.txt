@@ -8,7 +8,6 @@
 		login
 		favorites*
 	tables
-		jobs: name
-		users: name
-		favorites: job name + username?*
+		jobs: id, name
+		users: id, name, [job id]
 	front end
