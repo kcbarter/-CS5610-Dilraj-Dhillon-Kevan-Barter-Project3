@@ -1,0 +1,14 @@
+  path params: get/delete, request body: post/put
+	back end
+		get all listings: path param (search word)
+		get listing: path param
+		post job listing: body data
+		put job listing: body data
+		delete job listing: path param
+		login
+		favorites*
+	tables
+		jobs: name
+		users: name
+		favorites: job name + username?*
+	front end
