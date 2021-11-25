@@ -1,0 +1,4 @@
+npm start
+npm install
+nodemon server.js
+mongod --dbpath "C:\Program Files\MongoDB\Server\5.0\data\"
