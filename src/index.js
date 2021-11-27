@@ -12,13 +12,12 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <Router>
     <Routes>
-
       <Route path="/" element={<PokemonList />} />
       <Route path="/pokemonSearch" element={<PokemonSearch />} />
       <Route path="/pokemon/:pokemonName" element={<PokemonDetails />} />
     </Routes>
   </Router>
-,
+  ,
   document.getElementById('root')
 );
 
