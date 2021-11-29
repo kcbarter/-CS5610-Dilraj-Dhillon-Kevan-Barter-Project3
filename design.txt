@@ -3,8 +3,10 @@
 		get all listings: path param (search word)
 		get listing: path param
 		post job listing: body data
-		put job listing: body data
+		put job listing: path param + body data
 		delete job listing: path param
+		post favorite job: body data
+		delete favorite job: path param
 		login
 		favorites*
 	tables

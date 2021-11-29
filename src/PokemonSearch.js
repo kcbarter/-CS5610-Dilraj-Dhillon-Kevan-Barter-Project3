@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios, { Axios } from 'axios';
+import axios from 'axios';
 
 function App() {
   const [formInput, setFormInput] = useState('');
@@ -9,9 +9,7 @@ function App() {
   const [errorMsg, setError] = useState(null);
 
   function onSearchButtonClick() {
-    // const pokemon = axios.get('...')
-    // console.log(pokemon);
-    
+
     if (!formInput) {
       setError("You must type in a Pokemon name.");
       return;
@@ -22,7 +20,7 @@ function App() {
       .then(response => setPokemon(response.data))
       .catch(error => setPokemon({
         name: "No pokemon found",
-        health: null, 
+        health: null,
       }));
     console.log("hello, there");
 
@@ -33,11 +31,11 @@ function App() {
     <div>
       {errorMsg}
       <input type='text' value={formInput}
-      onChange={(e) => {
-        setError(null);
-        setFormInput(e.target.value)
-      
-      }} />
+        onChange={(e) => {
+          setError(null);
+          setFormInput(e.target.value)
+
+        }} />
       <button onClick={onSearchButtonClick}>
         Search for Pokemon
       </button>
@@ -49,7 +47,7 @@ function App() {
       </div>
 
     </div>
- 
+
   );
 }
 
