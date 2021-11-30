@@ -1,13 +1,15 @@
   path params: get/delete, request body: post/put
 	back end
-		get all listings: path param (search word)
+		get all listings
+		get all listings by filter: path param (search word)
 		get listing: path param
 		post job listing: body data
 		put job listing: path param + body data
 		delete job listing: path param
-		find user by username: path param
-		insert user: body data
-		find all user favorites by username: path param
+		get all users
+		get user by username: path param
+		post user: body data
+		get all user favorites by username: path param
 		post favorite job: body data
 		delete favorite job: path param
 	tables
