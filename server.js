@@ -1,5 +1,6 @@
 const express = require('express');
 const job = require('./routes/job.js')
+const user = require('./routes/user.js')
 const cors = require('cors')
 const mongoose = require('mongoose');
 
@@ -19,6 +20,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api/job', job);
+app.use('/api/user', user);
 
 app.listen(8000, function () {
     console.log('Starting server');
