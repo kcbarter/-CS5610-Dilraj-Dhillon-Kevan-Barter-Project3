@@ -6,6 +6,7 @@ exports.JobSchema = new Schema({
     location: String,
     description: String,
     email: String,
+    website: String,
     date: {
         type: Date,
         default: Date.now,

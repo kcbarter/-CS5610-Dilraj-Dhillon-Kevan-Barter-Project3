@@ -19,9 +19,9 @@ function getJobByTitle(title) {
     return JobModel.find({ title: title }).exec();
 }
 
-// function insertPokemon(pokemon) {
-//     return PokemonModel.create(pokemon);
-// }
+function insertJob(job) {
+    return JobModel.create(job);
+}
 
 // Make sure to export a function after you create it!
 module.exports = {
@@ -29,4 +29,5 @@ module.exports = {
     getJobsByTitle,
     getJobById,
     getJobByTitle,
+    insertJob,
 };
