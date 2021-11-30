@@ -2,8 +2,26 @@ const express = require('express');
 const router = express.Router();
 const JobAccessor = require('./models/Job.Model');
 
-router.get('/findTitles/:jobTitle', function (req, res) {
+router.get('/findAllJobs', function (req, res) {
+    return JobAccessor.getAllJobs()
+        .then(jobResponse => res.status(200).send(jobResponse))
+        .catch(error => res.status(400).send(error))
+})
+
+router.get('/findJobsByTitle/:jobTitle', function (req, res) {
     return JobAccessor.getJobsByTitle(req.params.jobTitle)
+        .then(jobResponse => res.status(200).send(jobResponse))
+        .catch(error => res.status(400).send(error))
+})
+
+router.get('/findJobById/:jobId', function (req, res) {
+    return JobAccessor.getJobById(req.params.jobId)
+        .then(jobResponse => res.status(200).send(jobResponse))
+        .catch(error => res.status(400).send(error))
+})
+
+router.get('/findJobByTitle/:jobTitle', function (req, res) {
+    return JobAccessor.getJobByTitle(req.params.jobTitle)
         .then(jobResponse => res.status(200).send(jobResponse))
         .catch(error => res.status(400).send(error))
 })
