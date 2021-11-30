@@ -5,9 +5,6 @@ import './index.css';
 import PokemonDetails from './PokemonDetails';
 import PokemonList from './PokemonList';
 import PokemonSearch from './PokemonSearch';
-import reportWebVitals from './reportWebVitals';
-
-
 
 ReactDOM.render(
   <Router>
@@ -20,8 +17,3 @@ ReactDOM.render(
   ,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

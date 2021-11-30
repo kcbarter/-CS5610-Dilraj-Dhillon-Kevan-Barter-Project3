@@ -9,6 +9,6 @@
 		delete favorite job: path param
 		login*
 	tables
-		jobs: id, name
-		users: id, name, [job id]
+		jobs: title, company, location, description, email, webiste, date
+		users: name, [job id]
 	front end
