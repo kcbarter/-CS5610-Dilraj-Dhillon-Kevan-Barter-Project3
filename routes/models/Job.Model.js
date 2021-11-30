@@ -4,7 +4,7 @@ const JobSchema = require('../schema/Job.Schema').JobSchema
 const JobModel = mongoose.model("Job", JobSchema);
 
 function getJobsByTitle(title) {
-    return JobModel.find({ title: /title/i }).exec();
+    return JobModel.find({ title: { $regex: title, $options: 'i' } }).exec();
 }
 
 function getJobById(id) {

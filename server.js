@@ -1,6 +1,6 @@
 const express = require('express');
 // const pokemon = require('./routes/pokemon.js');
-const job = require('./route/job.js')
+const job = require('./routes/job.js')
 const cors = require('cors')
 const mongoose = require('mongoose');
 
