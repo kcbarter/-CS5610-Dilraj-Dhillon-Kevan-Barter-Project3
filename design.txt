@@ -7,8 +7,7 @@
 		delete job listing: path param
 		post favorite job: body data
 		delete favorite job: path param
-		login
-		favorites*
+		login*
 	tables
 		jobs: id, name
 		users: id, name, [job id]

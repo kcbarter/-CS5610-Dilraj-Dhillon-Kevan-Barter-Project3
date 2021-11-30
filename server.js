@@ -1,12 +1,14 @@
 const express = require('express');
-const pokemon = require('./routes/pokemon.js');
+// const pokemon = require('./routes/pokemon.js');
+const job = require('./route/job.js')
 const cors = require('cors')
 const mongoose = require('mongoose');
 
 
 
 //Setup MongoDB Connection
-mongoose.connect('mongodb://127.0.0.1:27017/pokemon_app', { useNewUrlParser: true })
+// mongoose.connect('mongodb://127.0.0.1:27017/pokemon_app', { useNewUrlParser: true })
+mongoose.connect('mongodb://127.0.0.1:27017/job_app', { useNewUrlParser: true })
 
 const mongoDB = mongoose.connection;
 
@@ -18,9 +20,8 @@ app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api/pokemon', pokemon);
-// Note that it is common practice got backend APIs in Node to start with the api prefix
-// to distinguish them from frontend routes 
+// app.use('/api/pokemon', pokemon);
+app.use('/api/job', job);
 
 app.listen(8000, function () {
     console.log('Starting server');
