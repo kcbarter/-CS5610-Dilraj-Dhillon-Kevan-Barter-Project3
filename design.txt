@@ -5,10 +5,11 @@
 		post job listing: body data
 		put job listing: path param + body data
 		delete job listing: path param
+		find user: path param
+		insert user: body data
 		post favorite job: body data
 		delete favorite job: path param
-		login*
 	tables
 		jobs: title, company, location, description, email, webiste, date
-		users: name, [job id]
+		users: username, password, [job id]
 	front end
