@@ -32,8 +32,14 @@ router.post('/createJob', function (req, res) {
         .catch(error => res.status(400).send(error))
 })
 
-router.put('/updateJob/:jobId', function (req, res) {
-    return JobAccessor.updateJob(req.params.jobId, req.body)
+router.put('/updateJobById/:jobId', function (req, res) {
+    return JobAccessor.updateJobById(req.params.jobId, req.body)
+        .then(jobResponse => res.status(200).send(jobResponse))
+        .catch(error => res.status(400).send(error))
+})
+
+router.delete('/deleteJobById/:jobId', function (req, res) {
+    return JobAccessor.deleteJobById(req.params.jobId)
         .then(jobResponse => res.status(200).send(jobResponse))
         .catch(error => res.status(400).send(error))
 })
