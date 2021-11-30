@@ -15,12 +15,12 @@ function getJobById(id) {
     return JobModel.findById(id).exec();
 }
 
-function getJobByTitle(title) {
-    return JobModel.find({ title: title }).exec();
-}
-
 function insertJob(job) {
     return JobModel.create(job);
+}
+
+function updateJob(id, job) {
+    return JobModel.findByIdAndUpdate(id, job)
 }
 
 // Make sure to export a function after you create it!
@@ -28,6 +28,6 @@ module.exports = {
     getAllJobs,
     getJobsByTitle,
     getJobById,
-    getJobByTitle,
     insertJob,
+    updateJob,
 };

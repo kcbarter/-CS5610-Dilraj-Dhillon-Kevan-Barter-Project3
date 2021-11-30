@@ -21,12 +21,6 @@ router.get('/findJobById/:jobId', function (req, res) {
         .catch(error => res.status(400).send(error))
 })
 
-router.get('/findJobByTitle/:jobTitle', function (req, res) {
-    return JobAccessor.getJobByTitle(req.params.jobTitle)
-        .then(jobResponse => res.status(200).send(jobResponse))
-        .catch(error => res.status(400).send(error))
-})
-
 router.post('/createJob', function (req, res) {
     const { title, company, location, description, email } = req.body;
     if (!title || !company || !location || !description || !email) {
@@ -34,6 +28,12 @@ router.post('/createJob', function (req, res) {
     }
 
     return JobAccessor.insertJob(req.body)
+        .then(jobResponse => res.status(200).send(jobResponse))
+        .catch(error => res.status(400).send(error))
+})
+
+router.put('/updateJob/:jobId', function (req, res) {
+    return JobAccessor.updateJob(req.params.jobId, req.body)
         .then(jobResponse => res.status(200).send(jobResponse))
         .catch(error => res.status(400).send(error))
 })
