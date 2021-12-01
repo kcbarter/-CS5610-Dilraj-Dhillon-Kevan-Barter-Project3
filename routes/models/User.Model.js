@@ -3,6 +3,10 @@ const UserSchema = require('../schema/User.Schema').UserSchema
 
 const UserModel = mongoose.model("User", UserSchema);
 
+function getAllUsers() {
+    return UserModel.find().exec();
+}
+
 function getUserByUsername(username) {
     return UserModel.find({ username: username }).exec();
 }
@@ -13,6 +17,7 @@ function insertUser(user) {
 
 // Make sure to export a function after you create it!
 module.exports = {
+    getAllUsers,
     getUserByUsername,
     insertUser,
 
