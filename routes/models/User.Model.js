@@ -16,7 +16,15 @@ function insertUser(user) {
 }
 
 function getAllUserFavoritesByUsername(username) {
-    return UserModel.find({ username: username }, 'ofFavorites').exec();
+    return UserModel.find({ username: username }, 'favorites').exec();
+}
+
+function insertFavoriteJobOfUser(username, jobId) {
+    return UserModel.findOneAndUpdate({ username: username }, { $addToSet: { favorites: jobId } });
+}
+
+function deleteFavoriteJobOfUser(username, jobId) {
+    return UserModel.findOneAndUpdate({ username: username }, { $pull: { favorites: jobId } });
 }
 
 // Make sure to export a function after you create it!
@@ -25,4 +33,6 @@ module.exports = {
     getUserByUsername,
     insertUser,
     getAllUserFavoritesByUsername,
+    insertFavoriteJobOfUser,
+    deleteFavoriteJobOfUser,
 };

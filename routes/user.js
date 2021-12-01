@@ -39,4 +39,16 @@ router.get('/findAllUserFavoritesByUsername/:username', function (req, res) {
         .catch(error => res.status(400).send(error))
 })
 
+router.post('/createFavoriteJobOfUser/:username/:jobId', function (req, res) {
+    return UserAccessor.insertFavoriteJobOfUser(req.params.username, req.params.jobId)
+        .then(userResponse => res.status(200).send(userResponse))
+        .catch(error => res.status(400).send(error))
+})
+
+router.delete('/deleteFavoriteJobOfUser/:username/:jobId', function (req, res) {
+    return UserAccessor.deleteFavoriteJobOfUser(req.params.username, req.params.jobId)
+        .then(userResponse => res.status(200).send(userResponse))
+        .catch(error => res.status(400).send(error))
+})
+
 module.exports = router; // <== Look at our new friend, module.exports!
