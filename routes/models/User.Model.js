@@ -15,10 +15,14 @@ function insertUser(user) {
     return UserModel.create(user);
 }
 
+function getAllUserFavoritesByUsername(username) {
+    return UserModel.find({ username: username }, 'ofFavorites').exec();
+}
+
 // Make sure to export a function after you create it!
 module.exports = {
     getAllUsers,
     getUserByUsername,
     insertUser,
-
+    getAllUserFavoritesByUsername,
 };

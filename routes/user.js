@@ -33,4 +33,10 @@ router.post('/createUser', function (req, res) {
         })
 })
 
+router.get('/findAllUserFavoritesByUsername/:username', function (req, res) {
+    return UserAccessor.getAllUserFavoritesByUsername(req.params.username)
+        .then(userResponse => res.status(200).send(userResponse))
+        .catch(error => res.status(400).send(error))
+})
+
 module.exports = router; // <== Look at our new friend, module.exports!
