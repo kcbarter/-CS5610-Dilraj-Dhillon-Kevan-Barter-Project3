@@ -8,7 +8,7 @@ function getAllUsers() {
 }
 
 function getUserByUsername(username) {
-    return UserModel.find({ username: username }).exec();
+    return UserModel.findOne({ username: username }).exec();
 }
 
 function insertUser(user) {
