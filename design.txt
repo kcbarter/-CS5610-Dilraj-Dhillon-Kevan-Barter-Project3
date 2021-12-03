@@ -12,6 +12,8 @@
 		get all user favorites by username: path param
 		post favorite job of user: path param + path param
 		delete favorite job of user: path param + path param
+		authenticate: body data
+		who is logged in
 	tables
 		jobs: title, company, location, description, email, webiste, date
 		users: username, password, [job id]
