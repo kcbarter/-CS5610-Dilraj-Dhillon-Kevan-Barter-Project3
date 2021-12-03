@@ -58,8 +58,6 @@ router.post('/authenticate', function (req, res) {
 
     return UserAccessor.getUserByUsername(username)
         .then((userResponse) => {
-            console.log(typeof (username) + ": " + username + " " + typeof (password) + ": " + password);
-            console.log(userResponse.password + " " + userResponse.username);
             if (!userResponse) {
                 return res.status(404).send("No user found with that username");
             }
