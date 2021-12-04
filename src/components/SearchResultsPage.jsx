@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-export default function PokemonSearchBar() {
+export default function SearchResultsPage() {
+    let { jobToSearch }= useParams();
     const [allPokemon, setAllPokemon] = useState([]);
 
 
@@ -25,8 +26,7 @@ export default function PokemonSearchBar() {
 
     return (
         <div>
-            <h1>These are all my Pokemon</h1>
-            {pokemonListComponent}
+           {jobToSearch}
         </div>
     )
 }
