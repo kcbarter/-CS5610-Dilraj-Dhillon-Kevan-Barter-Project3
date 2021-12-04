@@ -30,6 +30,7 @@ export default function JobDetails () {
             <a href={`mailto:${selectedJob.email}`}>
                 <p>{selectedJob.email}</p>
             </a>
+            <p>{selectedJob.website}</p>
             <p>{selectedJob.date}</p>
         </div>
     )
