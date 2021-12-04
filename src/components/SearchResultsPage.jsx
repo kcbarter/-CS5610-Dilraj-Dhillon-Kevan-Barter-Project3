@@ -3,30 +3,42 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 export default function SearchResultsPage() {
-    let { jobToSearch }= useParams();
-    const [allPokemon, setAllPokemon] = useState([]);
+    let { jobToSearch } = useParams();
+    const [allJobs, setAllJobs] = useState([]);
 
 
-    function findAllPokemon() {
-        axios.get('http://localhost:8000/api/pokemon/findAll')
+    function findAllJobs() {
+        axios.get('http://localhost:8000/api/job/findJobsByTitle/' + jobToSearch)
             .then(response => {
-                setAllPokemon(response.data)
+                setAllJobs(response.data)
             })
             .catch(error => console.error(error));
     }
 
-    useEffect(findAllPokemon, []);
+    useEffect(findAllJobs, []);
+    console.log(allJobs.companyName);
+    console.log(typeof(allJobs));
 
-    const pokemonListComponent = allPokemon.map(pokemon => {
-        return (<>
-        <p></p>
-        <Link to={"pokemon/" + pokemon.name}>{pokemon.name}</Link>
-        </>)
-    })
+    // const pokemonListComponent = allJobs.map(job => {
+    //     return (<>
+    //     <p></p>
+    //     <Link to={"pokemon/" + pokemon.name}>{pokemon.name}</Link>
+    //     </>)
+    // })
 
     return (
         <div>
-           {jobToSearch}
+            {jobToSearch}
+            {allJobs.map(job => 
+                <Link to={{ pathname: `/jobDetails/${job._id}` }}>
+                    <div>
+                        <h1>{job.title}</h1>
+                        <h3>{job.location}</h3>
+                        <h3>{job.company}</h3>
+                    </div>
+                </Link>
+            )}
+    
         </div>
     )
 }
