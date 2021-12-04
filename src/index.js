@@ -13,6 +13,7 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<JobSearch />} />
       <Route path="/searchResults/:jobToSearch" element={<SearchResultsPage />} />
+      <Route path="/searchResults/" element={<SearchResultsPage />} />
       <Route path="/jobDetails/:jobId" element={<JobDetails />} />
       {/* <Route path="/pokemonSearch" element={<PokemonSearch />} />
       <Route path="/pokemon/:pokemonName" element={<PokemonDetails />} /> */}

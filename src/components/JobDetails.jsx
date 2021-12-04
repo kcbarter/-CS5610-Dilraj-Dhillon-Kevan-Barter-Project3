@@ -22,18 +22,13 @@ export default function JobDetails () {
 
     return (
         <div>
-            Got here!
-            {/* {selectedJob.map(job =>  */}
-                {/* <div> */}
-                    <h1>{selectedJob.title}</h1>
-                    <p>{selectedJob.location}</p>
-                    <p>{selectedJob.company}</p>
-                    <p>{selectedJob.location}</p>
-                    <p>{selectedJob.description}</p>
-                    <p>{selectedJob.email}</p>
-                    <p>{selectedJob.date}</p>
-                {/* </div> */}
-            {/* )} */}
+            <h1>{selectedJob.title}</h1>
+            <p>{selectedJob.location}</p>
+            <p>{selectedJob.company}</p>
+            <p>{selectedJob.location}</p>
+            <p>{selectedJob.description}</p>
+            <p>{selectedJob.email}</p>
+            <p>{selectedJob.date}</p>
         </div>
     )
 }

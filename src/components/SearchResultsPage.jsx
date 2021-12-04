@@ -6,25 +6,30 @@ export default function SearchResultsPage() {
     let { jobToSearch } = useParams();
     const [allJobs, setAllJobs] = useState([]);
 
+    console.log(jobToSearch);
+    console.log(typeof(jobToSearch));
 
     function findAllJobs() {
-        axios.get('http://localhost:8000/api/job/findJobsByTitle/' + jobToSearch)
+        if(jobToSearch === undefined){
+            axios.get('http://localhost:8000/api/job/findAllJobs')
             .then(response => {
                 setAllJobs(response.data)
             })
             .catch(error => console.error(error));
+        }
+        else{
+            axios.get('http://localhost:8000/api/job/findJobsByTitle/' + jobToSearch)
+                .then(response => {
+                    setAllJobs(response.data)
+                })
+                .catch(error => console.error(error));
+        }
     }
 
     useEffect(findAllJobs, []);
+    
     console.log(allJobs.companyName);
     console.log(typeof(allJobs));
-
-    // const pokemonListComponent = allJobs.map(job => {
-    //     return (<>
-    //     <p></p>
-    //     <Link to={"pokemon/" + pokemon.name}>{pokemon.name}</Link>
-    //     </>)
-    // })
 
     return (
         <div>

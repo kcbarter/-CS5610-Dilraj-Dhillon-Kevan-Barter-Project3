@@ -5,29 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function JobSearch() {
   const [formInput, setFormInput] = useState('');
-  // const [job, setPokemon] = useState({
-  //   name: 'No pokemon selected', health: -1,
-  // })
   const [errorMsg, setError] = useState(null);
-
-  // function onSearchButtonClick() {
-
-  //   if (!formInput) {
-  //     setError("Please enter a job you want to search for!");
-  //     return;
-  //   }
-
-
-  //   axios.get('http://localhost:8000/api/findJobsByTitle/' + formInput)
-  //     .then(response => "")
-  //     // .then(response => setPokemon(response.data))
-  //     // .catch(error => setPokemon({
-  //     //   name: "No pokemon found",
-  //     //   health: null,
-  //     // }));
-
-  //   // doSomething();
-  // }
 
   return (
     <div>
@@ -38,18 +16,13 @@ export default function JobSearch() {
           setError(null);
           setFormInput(e.target.value);
         }} />
-        <Link to={{ pathname: `/searchResults/${formInput}` }}>
+        <Link to={{ pathname: `/searchResults/${formInput.trim()}` }}>
           <button>
             Search Job
-        </button>
+          </button>
         </Link>
-      {/* <div>
-        {/* Pokemon Name: {pokemon.name}
-      </div>
-      <div>
-        Pokemon Health: {pokemon.health}
-      </div> */} 
-
+        <br />
+        <label>Note: Empty string searches for all jobs!</label>
     </div>
 
   )
