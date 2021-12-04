@@ -62,7 +62,6 @@ router.post('/authenticate', function (req, res) {
                 return res.status(404).send("No user found with that username");
             }
             if (userResponse.password === password) {
-                console.log("the password is: " + userResponse.password);
                 req.session.username = username;
                 return res.status(200).send({ username });
             } else {
@@ -75,6 +74,11 @@ router.post('/authenticate', function (req, res) {
 router.get('/whoIsLoggedIn', function (req, res) {
     const username = req.session.username;
     return res.send(username);
+})
+
+router.delete('/logOut', function (req, res) {
+    req.session.destroy();
+    return res.status(200).send(req.session);
 })
 
 module.exports = router; // <== Look at our new friend, module.exports!
