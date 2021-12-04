@@ -27,6 +27,14 @@ export default function SearchResultsPage() {
     }
 
     useEffect(findAllJobs, []);
+
+    if(allJobs.length === 0){
+        return(
+            <div>
+                <h1>No jobs found with that search parameter!</h1>
+            </div>
+        )
+    }
     
     console.log(allJobs.companyName);
     console.log(typeof(allJobs));

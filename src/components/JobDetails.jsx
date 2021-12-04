@@ -27,7 +27,9 @@ export default function JobDetails () {
             <p>{selectedJob.company}</p>
             <p>{selectedJob.location}</p>
             <p>{selectedJob.description}</p>
-            <p>{selectedJob.email}</p>
+            <a href={`mailto:${selectedJob.email}`}>
+                <p>{selectedJob.email}</p>
+            </a>
             <p>{selectedJob.date}</p>
         </div>
     )
