@@ -5,12 +5,16 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    background-color: darkcyan;
+    background-color: black;
     font-weight: bold;
     font-size: 20px;
     height: 2em;
 }
 
-a {
-    color: black;
+.navbarContainer a {
+    color: white;
+}
+
+.navbarContainer a:hover{
+    color: lightblue;
 }

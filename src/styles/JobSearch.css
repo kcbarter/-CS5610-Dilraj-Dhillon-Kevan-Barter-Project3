@@ -1,0 +1,27 @@
+.searchContainer{
+    position: absolute;
+    left: 40%;
+    top: 10%;
+}
+
+.searchContainer h1{
+    text-align: center;
+}
+
+#jobToSearch{
+    height: 2em;
+    font-size: 1.1em;
+    margin-right: 1.5em;
+    margin-bottom: 1em;
+}
+
+#searchJob{
+    background-color: black;
+    font-size: 1.1em;
+    color: white;
+    padding: .5em;
+}
+
+.searchContainer label{
+    color: red;
+}

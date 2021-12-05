@@ -41,7 +41,6 @@ export default function SearchResultsPage() {
 
     return (
         <div>
-            {jobToSearch}
             {allJobs.map(job => 
                 <Link to={{ pathname: `/jobDetails/${job._id}` }}>
                     <div>
