@@ -15,7 +15,7 @@ function insertUser(user) {
     return UserModel.create(user);
 }
 
-function getAllUserFavoritesByUsername(username) {
+function getAllFavoriteJobsByUsername(username) {
     return UserModel.find({ username: username }, 'favorites').exec();
 }
 
@@ -27,12 +27,27 @@ function deleteFavoriteJobOfUser(username, jobId) {
     return UserModel.findOneAndUpdate({ username: username }, { $pull: { favorites: jobId } });
 }
 
+function getAllCreatedJobsByUsername(username) {
+    return UserModel.find({ username: username }, 'created').exec();
+}
+
+function insertCreatedJobOfUser(username, jobId) {
+    return UserModel.findOneAndUpdate({ username: username }, { $addToSet: { created: jobId } });
+}
+
+function deleteCreatedJobOfUser(username, jobId) {
+    return UserModel.findOneAndUpdate({ username: username }, { $pull: { created: jobId } });
+}
+
 // Make sure to export a function after you create it!
 module.exports = {
     getAllUsers,
     getUserByUsername,
     insertUser,
-    getAllUserFavoritesByUsername,
+    getAllFavoriteJobsByUsername,
     insertFavoriteJobOfUser,
     deleteFavoriteJobOfUser,
+    getAllCreatedJobsByUsername,
+    insertCreatedJobOfUser,
+    deleteCreatedJobOfUser,
 };

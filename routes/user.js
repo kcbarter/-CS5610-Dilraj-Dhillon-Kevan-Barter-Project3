@@ -32,8 +32,8 @@ router.post('/createUser', function (req, res) {
         })
 })
 
-router.get('/findAllUserFavoritesByUsername/:username', function (req, res) {
-    return UserAccessor.getAllUserFavoritesByUsername(req.params.username)
+router.get('/findAllFavoriteJobsByUsername/:username', function (req, res) {
+    return UserAccessor.getAllFavoriteJobsByUsername(req.params.username)
         .then(userResponse => res.status(200).send(userResponse))
         .catch(error => res.status(400).send(error))
 })
@@ -46,6 +46,24 @@ router.post('/createFavoriteJobOfUser/:username/:jobId', function (req, res) {
 
 router.delete('/deleteFavoriteJobOfUser/:username/:jobId', function (req, res) {
     return UserAccessor.deleteFavoriteJobOfUser(req.params.username, req.params.jobId)
+        .then(userResponse => res.status(200).send(userResponse))
+        .catch(error => res.status(400).send(error))
+})
+
+router.get('/findAllCreatedJobsByUsername/:username', function (req, res) {
+    return UserAccessor.getAllCreatedJobsByUsername(req.params.username)
+        .then(userResponse => res.status(200).send(userResponse))
+        .catch(error => res.status(400).send(error))
+})
+
+router.post('/createCreatedJobOfUser/:username/:jobId', function (req, res) {
+    return UserAccessor.insertCreatedJobOfUser(req.params.username, req.params.jobId)
+        .then(userResponse => res.status(200).send(userResponse))
+        .catch(error => res.status(400).send(error))
+})
+
+router.delete('/deleteCreatedJobOfUser/:username/:jobId', function (req, res) {
+    return UserAccessor.deleteCreatedJobOfUser(req.params.username, req.params.jobId)
         .then(userResponse => res.status(200).send(userResponse))
         .catch(error => res.status(400).send(error))
 })
