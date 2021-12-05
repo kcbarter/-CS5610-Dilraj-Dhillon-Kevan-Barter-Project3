@@ -6,6 +6,8 @@ import JobDetails from './components/JobDetails';
 import SearchResultsPage from './components/SearchResultsPage.jsx';
 import JobSearch from './components/JobSearch.jsx';
 import Navbar from './components/Navbar.jsx';
+import Login from './components/Login.jsx';
+import Favorites from './components/Favorites.jsx';
 
 ReactDOM.render(
   <Router>
@@ -15,8 +17,8 @@ ReactDOM.render(
       <Route path="/searchResults/:jobToSearch" element={<SearchResultsPage />} />
       <Route path="/searchResults/" element={<SearchResultsPage />} />
       <Route path="/jobDetails/:jobId" element={<JobDetails />} />
-      {/* <Route path="/pokemonSearch" element={<PokemonSearch />} />
-      <Route path="/pokemon/:pokemonName" element={<PokemonDetails />} /> */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/favorites/:username" element={<Favorites />} />
     </Routes>
   </Router>
   ,
