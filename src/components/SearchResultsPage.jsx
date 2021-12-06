@@ -6,8 +6,8 @@ export default function SearchResultsPage() {
     let { jobToSearch } = useParams();
     const [allJobs, setAllJobs] = useState([]);
 
-    console.log(jobToSearch);
-    console.log(typeof(jobToSearch));
+    // console.log(jobToSearch);
+    // console.log(typeof(jobToSearch));
 
     function findAllJobs() {
         if(jobToSearch === undefined){
@@ -36,8 +36,8 @@ export default function SearchResultsPage() {
         )
     }
     
-    console.log(allJobs.companyName);
-    console.log(typeof(allJobs));
+    console.log(allJobs[0]);
+    // console.log("Type: " + typeof(allJobs));
 
     return (
         <div>

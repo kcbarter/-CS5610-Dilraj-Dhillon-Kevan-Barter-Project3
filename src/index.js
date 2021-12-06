@@ -18,7 +18,7 @@ ReactDOM.render(
       <Route path="/searchResults/" element={<SearchResultsPage />} />
       <Route path="/jobDetails/:jobId" element={<JobDetails />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/favorites/:username" element={<Favorites />} />
+      <Route path="/favorites/:userName" element={<Favorites />} />
     </Routes>
   </Router>
   ,

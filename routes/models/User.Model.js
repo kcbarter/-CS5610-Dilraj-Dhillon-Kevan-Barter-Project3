@@ -16,7 +16,7 @@ function insertUser(user) {
 }
 
 function getAllFavoriteJobsByUsername(username) {
-    return UserModel.find({ username: username }, 'favorites').exec();
+    return UserModel.findOne({ username: username }, 'favorites').exec();
 }
 
 function insertFavoriteJobOfUser(username, jobId) {
@@ -28,7 +28,7 @@ function deleteFavoriteJobOfUser(username, jobId) {
 }
 
 function getAllCreatedJobsByUsername(username) {
-    return UserModel.find({ username: username }, 'created').exec();
+    return UserModel.findOne({ username: username }, 'created').exec();
 }
 
 function insertCreatedJobOfUser(username, jobId) {

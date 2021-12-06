@@ -29,7 +29,7 @@ export default function Login(){
             <button
                 onClick={() => {
                     console.log(userData)
-                    axios.post('http://localhost:8000/api/user/authenticate', userData)
+                    axios.post('/api/user/authenticate', userData)
                         .then(response => console.log(response))
                         .catch(error => console.log(error));
                 }}
@@ -37,11 +37,20 @@ export default function Login(){
             <button
                 onClick={() => {
                     console.log(userData)
-                    axios.post('http://localhost:8000/api/user/createUser', userData)
+                    axios.post('/api/user/createUser', userData)
                         .then(response => console.log(response))
                         .catch(error => console.log(error));
                 }}
             >Register</button>
+
+            <button
+                onClick={() => {
+                    console.log(userData)
+                    axios.post('/api/user/whoIsLoggedIn', userData)
+                        .then(response => console.log(response))
+                        .catch(error => console.log(error));
+                }}
+            >Who is logged in</button>
         </div>
     );
 }
