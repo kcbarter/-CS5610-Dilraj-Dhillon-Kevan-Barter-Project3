@@ -28,7 +28,6 @@ export default function Login() {
             }} type='password' />
             <button
                 onClick={() => {
-                    console.log(userData)
                     axios.post('/api/user/authenticate', userData)
                         .then(response => console.log(response))
                         .catch(error => console.log(error));
@@ -36,7 +35,6 @@ export default function Login() {
             >Login</button>
             <button
                 onClick={() => {
-                    console.log(userData)
                     axios.post('/api/user/createUser', userData)
                         .then(response => console.log(response))
                         .catch(error => console.log(error));
@@ -45,7 +43,6 @@ export default function Login() {
 
             <button
                 onClick={() => {
-                    console.log(userData)
                     axios.get('/api/user/whoIsLoggedIn', userData)
                         .then(response => console.log(response))
                         .catch(error => console.log(error));

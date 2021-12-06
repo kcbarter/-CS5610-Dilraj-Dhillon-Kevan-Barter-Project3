@@ -2,6 +2,10 @@
 
 In the project directory, you can run:
 
+### `npm run devstart`
+
+Runs the React App and the Node server
+
 ### `npm start`
 
 Runs the app in the development mode.\
