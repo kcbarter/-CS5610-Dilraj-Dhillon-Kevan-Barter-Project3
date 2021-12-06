@@ -1,13 +1,13 @@
 import axios from 'axios';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-export default function Login(){
+export default function Login() {
     const [userData, setUserData] = useState({
         password: '',
         username: '',
     })
 
-    return(
+    return (
         <div>
             <h3>Sign up or login!</h3>
             <h5>Username:</h5>
@@ -17,7 +17,7 @@ export default function Login(){
                     ...userData,
                     username: username
                 })
-            }}/>
+            }} />
             <h5>Password:</h5>
             <input value={userData.password} onChange={(e) => {
                 const password = e.target.value;
@@ -46,7 +46,7 @@ export default function Login(){
             <button
                 onClick={() => {
                     console.log(userData)
-                    axios.post('/api/user/whoIsLoggedIn', userData)
+                    axios.get('/api/user/whoIsLoggedIn', userData)
                         .then(response => console.log(response))
                         .catch(error => console.log(error));
                 }}

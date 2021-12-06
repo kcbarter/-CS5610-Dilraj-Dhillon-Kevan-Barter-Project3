@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const UserAccessor = require('./models/User.Model');
+const auth_middleware = require('./auth_middleware.js')
 
 router.get('/findAllUsers', function (req, res) {
     return UserAccessor.getAllUsers()
@@ -22,7 +23,7 @@ router.post('/createUser', function (req, res) {
 
     UserAccessor.getUserByUsername(req.body["username"])
         .then(userResponse => {
-            if (userResponse.length) {
+            if (userResponse) {
                 res.status(402).send("Username already exists")
             } else {
                 return UserAccessor.insertUser(req.body)
@@ -89,7 +90,7 @@ router.post('/authenticate', function (req, res) {
         .catch((error) => console.error(`Something went wrong: ${error}`));
 })
 
-router.get('/whoIsLoggedIn', function (req, res) {
+router.get('/whoIsLoggedIn', auth_middleware, function (req, res) {
     const username = req.session.username;
     return res.send(username);
 })
