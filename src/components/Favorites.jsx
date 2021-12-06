@@ -32,18 +32,33 @@ export default function SearchResultsPage() {
     //     )
     // }
 
+    // function addJobs(){
+    //     for(let i = 0; i < favorites.length; i++){
+    //         axios.get('http://localhost:8000/api/job/findJobById/' + favorites[i])
+    //                 .then(response => {
+    //                     console.log(response.data);
+    //                     allJobs.push(response.data);
+    //                     setAllJobs([...allJobs]);
+    //                 })
+    //                 .catch(error => console.error(error));
+    //         console.log(allJobs[i]);
+    //     }
+    // }
+
     let tempArray = [];
 
     for(let i = 0; i < favorites.length; i++){
         axios.get('http://localhost:8000/api/job/findJobById/' + favorites[i])
                 .then(response => {
                     console.log(response.data);
-                    
-                    setAllJobs(allJobs.push(response.data))
+                    tempArray.push(response.data);
+                    setAllJobs([...tempArray]);
                 })
                 .catch(error => console.error(error));
         console.log(allJobs[i]);
     }
+
+    // useEffect(addJobs, []);
 
     console.log(allJobs[0]);
     // console.log("Favorite Type of: " + typeof(allJobs));
@@ -63,7 +78,7 @@ export default function SearchResultsPage() {
 
     return (
         <div>
-            {/* {allJobs.map(job => 
+            {allJobs.map(job => 
                 <Link to={{ pathname: `/jobDetails/${job._id}` }}>
                     <div>
                         <h1>{job.title}</h1>
@@ -71,7 +86,7 @@ export default function SearchResultsPage() {
                         <h3>{job.company}</h3>
                     </div>
                 </Link>
-            )} */}
+            )}
     
         </div>
     )
