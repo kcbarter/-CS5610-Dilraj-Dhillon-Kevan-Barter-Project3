@@ -23,15 +23,13 @@ export default function Navbar() {
                 <Link exact to={"/favorites/" + userName}>Favorite Jobs</Link>
                 <div>{userName}</div>
                 <button id="logout"
-                onClick={() => {
-                    axios.delete('/api/user/logOut', userName)
-                        .then(response => console.log(response))
-                        .catch(error => console.log(error));
-                    window.location.reload(true);
-                }}
-            >Logout</button>
-                {/* <Link exact to="/login">{userName}</Link>
-                <div>hi there</div> */}
+                    onClick={() => {
+                        axios.delete('/api/user/logOut')
+                            .then(response => console.log(response))
+                            .catch(error => console.log(error));
+                        setUserName('');
+                    }}
+                >Logout</button>
             </div>
         )
     }
