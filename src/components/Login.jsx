@@ -37,8 +37,9 @@ export default function Login() {
             <button
                 onClick={() => {
                     axios.post('/api/user/createUser', userData)
-                        .then(response => console.log(response))
+                        .then(axios.post('/api/user/authenticate', userData))
                         .catch(error => console.log(error));
+                    window.location.replace("/")
                 }}
             >Register</button>
 
