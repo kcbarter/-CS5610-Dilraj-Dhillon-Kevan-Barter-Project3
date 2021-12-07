@@ -18,16 +18,19 @@ export default function SearchResultsPage() {
     console.log(favorites);
 
     // function addJobs() {
-    for (let i = 0; i < favorites.length; i++) {
-        axios.get('/api/job/findJobById/' + favorites[i])
-            .then(response => {
-                allJobs.push(response.data);
-                setAllJobs([...allJobs]);
-            })
-            .catch(error => console.error(error));
-    }
+    // for (let i = 0; i < favorites.length; i++) {
+    //     axios.get('/api/job/findJobById/' + favorites[i])
+    //         .then(response => {
+    //             allJobs.push(response.data);
+    //             setAllJobs([...allJobs]);
+    //         })
+    //         .catch(error => console.error(error));
     // }
-    // useEffect(addJobs, []);
+    // }
+    // function addJobs() {
+    //     axios.get('/api')
+    // }
+    useEffect(addJobs, []);
     console.log(allJobs);
 
     if (favorites.length === 0) {

@@ -11,6 +11,10 @@ function getJobsByTitle(title) {
     return JobModel.find({ title: { $regex: title, $options: 'i' } }).exec();
 }
 
+function getAllJobsByIds(arrayOfIds) {
+    return JobModel.find({ '_id': { $in: arrayOfIds } }).exec();
+}
+
 function getJobById(id) {
     return JobModel.findById(id).exec();
 }
@@ -31,6 +35,7 @@ function deleteJobById(id) {
 module.exports = {
     getAllJobs,
     getJobsByTitle,
+    getAllJobsByIds,
     getJobById,
     insertJob,
     updateJobById,
