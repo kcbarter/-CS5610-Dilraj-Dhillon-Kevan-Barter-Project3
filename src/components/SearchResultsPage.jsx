@@ -42,7 +42,7 @@ export default function SearchResultsPage() {
 
     return (
         <div class="jobSearchContainer">
-            <h2></h2>
+            <h2>Search result for: {jobToSearch ? jobToSearch : "All jobs"}</h2>
             <div id="job">
                 {allJobs.map(job => 
                     <Link class="link" to={{ pathname: `/jobDetails/${job._id}` }}>
