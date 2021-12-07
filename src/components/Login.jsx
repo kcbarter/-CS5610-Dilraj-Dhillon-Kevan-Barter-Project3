@@ -29,9 +29,14 @@ export default function Login() {
             <button
                 onClick={() => {
                     axios.post('/api/user/authenticate', userData)
-                        .then(response => console.log(response))
-                        .catch(error => console.log(error));
-                    window.location.replace("/")
+                        .then(response => {
+                            console.log(response);
+                            window.location.replace("/");
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            alert("Non existent user or invalid password!");
+                        });
                 }}
             >Login</button>
             <button
@@ -40,11 +45,16 @@ export default function Login() {
                         .then(response => {
                             console.log(response);
                             axios.post('/api/user/authenticate', userData)
-                                .then(authResponse => console.log(authResponse))
+                                .then(authResponse => {
+                                    console.log(authResponse);
+                                    window.location.replace("/");
+                                })
                                 .catch(authError => console.log(authError));
                         })
-                        .catch(error => console.log(error));
-                    window.location.replace("/")
+                        .catch(error => {
+                            console.log(error);
+                            alert("Username already exists!");
+                        });
                 }}
             >Register</button>
 
