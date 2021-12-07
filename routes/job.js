@@ -15,7 +15,7 @@ router.get('/findJobsByTitle/:jobTitle', function (req, res) {
         .catch(error => res.status(400).send(error))
 })
 
-router.get('/findAllJobsByIds', function (req, res) {
+router.post('/findAllJobsByIds', function (req, res) {
     return JobAccessor.getAllJobsByIds(req.body._id)
         .then(jobResponse => res.status(200).send(jobResponse))
         .catch(error => res.status(400).send(error))

@@ -7,14 +7,14 @@ export default function SearchResultsPage() {
     const [favorites, setFavoriteJobs] = useState([]);
     const [allJobs, setAllJobs] = useState([]);
 
-    function getAllFavorites() {
+    function getAllFavoriteIds() {
         axios.get('/api/user/findAllFavoriteJobsByUsername/' + userName)
             .then(response => {
                 setFavoriteJobs(response.data.favorites)
             })
             .catch(error => console.error(error));
     }
-    useEffect(getAllFavorites, []);
+    useEffect(getAllFavoriteIds, []);
     console.log(favorites);
 
     // function addJobs() {
@@ -27,10 +27,13 @@ export default function SearchResultsPage() {
     //         .catch(error => console.error(error));
     // }
     // }
-    // function addJobs() {
-    //     axios.get('/api')
-    // }
-    useEffect(addJobs, []);
+
+    function getAllJobsByIds() {
+        axios.post('/api/job/findAllJobsByIds', { _id: favorites })
+            .then(response => setAllJobs(response.data))
+            .catch(error => console.log(error))
+    }
+    useEffect(getAllJobsByIds, []);
     console.log(allJobs);
 
     if (favorites.length === 0) {
@@ -43,6 +46,7 @@ export default function SearchResultsPage() {
 
     return (
         <div>
+            hi there
             {allJobs.map(job =>
                 <Link to={{ pathname: `/jobDetails/${job._id}` }}>
                     <div>
