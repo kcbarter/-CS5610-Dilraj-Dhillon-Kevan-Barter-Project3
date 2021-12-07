@@ -11,10 +11,25 @@
     height: 2em;
 }
 
-.navbarContainer a {
+.navbarContainer a{
+    color: white;
+}
+
+.navbarContainer {
     color: white;
 }
 
 .navbarContainer a:hover{
+    color: lightblue;
+}
+
+.navbarContainer #logout{
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+}
+
+#logout:hover{
     color: lightblue;
 }

@@ -31,6 +31,7 @@ export default function Login() {
                     axios.post('/api/user/authenticate', userData)
                         .then(response => console.log(response))
                         .catch(error => console.log(error));
+                    window.location.replace("/")
                 }}
             >Login</button>
             <button
