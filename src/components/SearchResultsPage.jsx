@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import "../styles/JobResults.css";
 
 export default function SearchResultsPage() {
     let { jobToSearch } = useParams();
@@ -40,17 +41,19 @@ export default function SearchResultsPage() {
     // console.log("Type: " + typeof(allJobs));
 
     return (
-        <div>
-            {allJobs.map(job => 
-                <Link to={{ pathname: `/jobDetails/${job._id}` }}>
-                    <div>
-                        <h1>{job.title}</h1>
-                        <h3>{job.location}</h3>
-                        <h3>{job.company}</h3>
-                    </div>
-                </Link>
-            )}
-    
+        <div class="jobSearchContainer">
+            <h2></h2>
+            <div id="job">
+                {allJobs.map(job => 
+                    <Link class="link" to={{ pathname: `/jobDetails/${job._id}` }}>
+                        <div class="basicJobInfo">
+                            <h1>{job.title}</h1>
+                            <h3>Location: {job.location}</h3>
+                            <h3>company: {job.company}</h3>
+                        </div>
+                    </Link>
+                )}
+            </div>
         </div>
     )
 }
