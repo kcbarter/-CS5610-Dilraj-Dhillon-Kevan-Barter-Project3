@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import "../styles/FavoriteJobs.css";
 
 export default function SearchResultsPage() {
     let { userName } = useParams();
@@ -62,16 +63,19 @@ export default function SearchResultsPage() {
     }
 
     return (
-        <div>
-            {allJobs.map(job =>
-                <Link to={{ pathname: `/jobDetails/${job._id}` }}>
-                    <div>
-                        <h1>{job.title}</h1>
-                        <h3>{job.location}</h3>
-                        <h3>{job.company}</h3>
-                    </div>
-                </Link>
-            )}
+        <div class="favoritesContainer">
+            <h2>Your favorited jobs:</h2>
+            <div id="favoriteJobs">
+                {allJobs.map(job =>
+                    <Link class="link" to={{ pathname: `/jobDetails/${job._id}` }}>
+                        <div class="basicJobInfo">
+                            <h1>{job.title}</h1>
+                            <h3>Location: {job.location}</h3>
+                            <h3>Company: {job.company}</h3>
+                        </div>
+                    </Link>
+                )}
+            </div>
 
         </div>
     )

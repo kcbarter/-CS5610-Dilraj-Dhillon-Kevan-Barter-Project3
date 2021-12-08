@@ -1,0 +1,19 @@
+.loginContainer{
+    position: absolute;
+    left: 40%;
+}
+
+.loginContainer input{
+    height: 2em;
+    font-size: 1.1em;
+}
+
+.loginContainer button{
+    margin-top: 1.5em;
+    background-color: black;
+    font-size: 1.1em;
+    color: white;
+    padding: .5em;
+    margin-right: 1.2em;
+    margin-left: 2em;
+}

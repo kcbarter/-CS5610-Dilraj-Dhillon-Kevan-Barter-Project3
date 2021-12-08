@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import "../styles/Login.css";
 
 export default function Login() {
     const [userData, setUserData] = useState({
@@ -8,9 +9,9 @@ export default function Login() {
     })
 
     return (
-        <div>
-            <h3>Sign up or login!</h3>
-            <h5>Username:</h5>
+        <div class="loginContainer">
+            <h2>Sign up or login!</h2>
+            <h3>Username:</h3>
             <input value={userData.username} onChange={(e) => {
                 const username = e.target.value;
                 setUserData({
@@ -18,7 +19,7 @@ export default function Login() {
                     username: username
                 })
             }} />
-            <h5>Password:</h5>
+            <h3>Password:</h3>
             <input value={userData.password} onChange={(e) => {
                 const password = e.target.value;
                 setUserData({
@@ -26,6 +27,7 @@ export default function Login() {
                     password: password
                 })
             }} type='password' />
+            <br />
             <button
                 onClick={() => {
                     axios.post('/api/user/authenticate', userData)
@@ -58,13 +60,13 @@ export default function Login() {
                 }}
             >Register</button>
 
-            <button
+            {/* <button
                 onClick={() => {
                     axios.get('/api/user/whoIsLoggedIn', userData)
                         .then(response => console.log(response))
                         .catch(error => console.log(error));
                 }}
-            >Who is logged in</button>
+            >Who is logged in</button> */}
         </div>
     );
 }
