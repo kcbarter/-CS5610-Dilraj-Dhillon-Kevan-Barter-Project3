@@ -13,8 +13,12 @@
     background-color: lightblue;
     width: 25vw;
     margin-right: 1.5em;
-    border: 2px solid black;
+    border: 3px solid black;
     text-decoration: none;
+}
+
+.basicJobInfo:hover{
+    border-color: red;
 }
 
 .link{

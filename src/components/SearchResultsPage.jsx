@@ -31,8 +31,8 @@ export default function SearchResultsPage() {
 
     if(allJobs.length === 0){
         return(
-            <div>
-                <h1>No jobs found with that search parameter!</h1>
+            <div class="jobSearchContainer">
+                <h2>No jobs found with that search parameter!</h2>
             </div>
         )
     }
