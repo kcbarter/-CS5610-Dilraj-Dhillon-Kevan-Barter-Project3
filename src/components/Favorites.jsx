@@ -7,34 +7,51 @@ export default function SearchResultsPage() {
     const [favorites, setFavoriteJobs] = useState([]);
     const [allJobs, setAllJobs] = useState([]);
 
-    function getAllFavoriteIds() {
-        axios.get('/api/user/findAllFavoriteJobsByUsername/' + userName)
-            .then(response => {
-                setFavoriteJobs(response.data.favorites)
-            })
-            .catch(error => console.error(error));
-    }
-    useEffect(getAllFavoriteIds, []);
-    console.log(favorites);
-
-    // function addJobs() {
-    // for (let i = 0; i < favorites.length; i++) {
-    //     axios.get('/api/job/findJobById/' + favorites[i])
+    // function getAllFavoriteIds() {
+    //     axios.get('/api/user/findAllFavoriteJobsByUsername/' + userName)
     //         .then(response => {
-    //             allJobs.push(response.data);
-    //             setAllJobs([...allJobs]);
+    //             setFavoriteJobs(response.data.favorites)
     //         })
     //         .catch(error => console.error(error));
     // }
-    // }
+    // useEffect(getAllFavoriteIds, []);
+    // console.log(favorites);
 
-    function getAllJobsByIds() {
-        axios.post('/api/job/findAllJobsByIds', { _id: favorites })
+    // function getAllJobsByIds() {
+    //     axios.post('/api/job/findAllJobsByIds', { _id: favorites })
+    //         .then(response => setAllJobs(response.data))
+    //         .catch(error => console.log(error))
+    // }
+    // useEffect(getAllJobsByIds, [favorites]);
+    // console.log(allJobs);
+
+    const getAllFavoriteIds = () => {
+        return axios.get('/api/user/findAllFavoriteJobsByUsername/' + userName)
+            .then(response => {
+                const favorites = response.data.favorites;
+                setFavoriteJobs(favorites);
+                return favorites;
+            })
+            .catch(error => console.error(error));
+    };
+
+    const getAllJobsByIds = (favs) => {
+        return axios.post('/api/job/findAllJobsByIds', { _id: favs })
             .then(response => setAllJobs(response.data))
-            .catch(error => console.log(error))
-    }
-    useEffect(getAllJobsByIds, []);
-    console.log(allJobs);
+            .catch(error => console.log(error));
+    };
+
+    const getAllData = () => {
+        return getAllFavoriteIds()
+            .then(favs => getAllJobsByIds(favs));
+    };
+
+    useEffect(() => {
+        getAllData().then(() => {
+            console.log(favorites);
+            console.log(allJobs);
+        });
+    }, []);
 
     if (favorites.length === 0) {
         return (
