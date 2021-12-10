@@ -1,11 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import "../styles/JobDetails.css";
 
 export default function JobDetails () {
     let { jobId } = useParams();
 
     const [selectedJob, setJob] = useState([]);
+    const [userName, setUserName] = useState();
+    const [favorite, setFavoriteJob] = useState('unfavorited');
 
 
     function findJob() {
@@ -17,21 +20,65 @@ export default function JobDetails () {
     }
 
     useEffect(findJob, []);
-    console.log(selectedJob)
-    console.log(typeof(selectedJob))
+
+    function whoIsLoggedIn() {
+        axios.get('/api/user/whoIsLoggedIn')
+            .then(response => {
+                setUserName(response.data);
+            })
+            .catch(error => console.error(error));
+    }
+    useEffect(whoIsLoggedIn, []);
+
+    if(userName){
+        axios.get('/api/user/findAllFavoriteJobsByUsername/' + userName)
+        .then(response => {
+            let favoriteJobs = response.data.favorites;
+
+            if(favoriteJobs.includes(jobId)){
+                setFavoriteJob('favorite');
+            }
+        })
+        .catch(error => console.error(error));
+    }
+
+    function favoriteUnfavoriteJob(){
+        if(favorite === "unfavorited"){
+            axios.post('/api/user/createFavoriteJobOfUser/' + userName + '/' + jobId)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => console.error(error));
+            setFavoriteJob('favorite');
+        }
+        else{
+            axios.delete('/api/user/deleteFavoriteJobOfUser/' + userName + '/' + jobId)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => console.error(error));
+            setFavoriteJob('unfavorited');
+        }
+    }
 
     return (
-        <div>
-            <h1>{selectedJob.title}</h1>
-            <p>{selectedJob.location}</p>
-            <p>{selectedJob.company}</p>
-            <p>{selectedJob.location}</p>
-            <p>{selectedJob.description}</p>
+        <div class="detailsOfJob">
+            <h1>{selectedJob.title} <button id={favorite} onClick={() =>{
+                if(!userName){
+                    window.location.replace("/login");
+                }
+                else{
+                    favoriteUnfavoriteJob()
+                }
+            }}>&#9734;</button></h1>
+            <p>Location: {selectedJob.location}</p>
+            <p>Company: {selectedJob.company}</p>
+            <p>Description: {selectedJob.description}</p>
             <a href={`mailto:${selectedJob.email}`}>
-                <p>{selectedJob.email}</p>
+                <p>Email: {selectedJob.email}</p>
             </a>
-            <p>{selectedJob.website}</p>
-            <p>{selectedJob.date}</p>
+            <p>Website: {selectedJob.website}</p>
+            <p>Date Posted: {selectedJob.date}</p>
         </div>
     )
 }

@@ -1,0 +1,22 @@
+.detailsOfJob {
+    position: absolute;
+    left: 40%;
+}
+
+.detailsOfJob p{
+    font-size: 1.2em;
+}
+
+#unfavorited, #favorite{
+    background: none;
+    border: none;
+    font-size: 1.2em;
+}
+
+#unfavorited{
+    background-color: white;
+}
+
+#favorite{
+    color: blue;
+}
