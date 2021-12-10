@@ -9,6 +9,7 @@ export default function JobDetails () {
     const [selectedJob, setJob] = useState([]);
     const [userName, setUserName] = useState();
     const [favorite, setFavoriteJob] = useState('unfavorited');
+    const[created, setCreateJob] = useState(false);
 
 
     function findJob() {
@@ -30,16 +31,28 @@ export default function JobDetails () {
     }
     useEffect(whoIsLoggedIn, []);
 
+    
+
     if(userName){
         axios.get('/api/user/findAllFavoriteJobsByUsername/' + userName)
-        .then(response => {
-            let favoriteJobs = response.data.favorites;
+            .then(response => {
+                let favoriteJobs = response.data.favorites;
 
-            if(favoriteJobs.includes(jobId)){
-                setFavoriteJob('favorite');
-            }
-        })
-        .catch(error => console.error(error));
+                if(favoriteJobs.includes(jobId)){
+                    setFavoriteJob('favorite');
+                }
+            })
+            .catch(error => console.error(error));
+        
+        axios.get('/api/user/findAllCreatedJobsByUsername/' + userName)
+            .then(response => {
+                let createdJobs = response.data.created;
+
+                if(createdJobs.includes(jobId)){
+                    setCreateJob(true);
+                }
+            })
+            .catch(error => console.error(error));
     }
 
     function favoriteUnfavoriteJob(){
@@ -79,6 +92,12 @@ export default function JobDetails () {
             </a>
             <p>Website: {selectedJob.website}</p>
             <p>Date Posted: {selectedJob.date}</p>
+            {userName && created &&
+                <div class="loggedInEditAndDelete">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
+            }
         </div>
     )
 }
