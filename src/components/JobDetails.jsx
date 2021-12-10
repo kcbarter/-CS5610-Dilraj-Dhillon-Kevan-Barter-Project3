@@ -94,8 +94,17 @@ export default function JobDetails () {
             <p>Date Posted: {selectedJob.date}</p>
             {userName && created &&
                 <div class="loggedInEditAndDelete">
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={() => {
+
+                    }}>Edit</button>
+                    <button onClick={() => {
+                        axios.delete('/api/job/deleteJobById/' + jobId)
+                            .then(response => {
+                                console.log(response);
+                                window.location.replace("/");
+                            })
+                            .catch(error => console.error(error));
+                    }}>Delete</button>
                 </div>
             }
         </div>
