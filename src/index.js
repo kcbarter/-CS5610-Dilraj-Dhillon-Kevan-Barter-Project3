@@ -10,6 +10,7 @@ import Login from './components/Login.jsx';
 import Favorites from './components/Favorites.jsx';
 import CreateJob from './components/CreateJob.jsx';
 import EditJob from './components/EditJob';
+import YourJobs from './components/YourJobs';
 
 ReactDOM.render(
   <Router>
@@ -23,6 +24,7 @@ ReactDOM.render(
       <Route path="/favorites/:userName" element={<Favorites />} />
       <Route path="/create_job" element={<CreateJob />} />
       <Route path="/edit_job/:jobId" element={<EditJob />}/>
+      <Route path="/your_jobs/:userName" element={<YourJobs/>} />
     </Routes> 
   </Router>
   ,

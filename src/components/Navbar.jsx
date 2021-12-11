@@ -21,6 +21,7 @@ export default function Navbar() {
             <div class="navbarContainer">
                 <Link exact to="/">Home Page</Link>
                 <Link exact to={"/favorites/" + userName}>Favorite Jobs</Link>
+                <Link exact to={"/your_jobs/" + userName}>Created Jobs</Link>
                 <div>{userName}</div>
                 <button id="logout"
                     onClick={() => {
