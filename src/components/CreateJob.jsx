@@ -14,10 +14,19 @@ export default function CreateJob () {
         website: '',
     })
 
+    function whoIsLoggedIn() {
+        axios.get('/api/user/whoIsLoggedIn')
+            .then(response => {
+                setUserName(response.data);
+            })
+            .catch(error => console.error(error));
+    }
+    useEffect(whoIsLoggedIn, []);
+
     return (
         <div class="createJob">
             <h3>Create Job:</h3>
-            <h3>Job Title</h3>
+            <h3>Job Title *</h3>
             <input value={jobData.title} onChange={(e) => {
                     const title = e.target.value;
                     setJobData({
@@ -25,7 +34,7 @@ export default function CreateJob () {
                         title: title
                     })
                 }}/>
-            <h3>Job Company</h3>
+            <h3>Job Company *</h3>
             <input value={jobData.company} onChange={(e) => {
                     const company = e.target.value;
                     setJobData({
@@ -33,7 +42,7 @@ export default function CreateJob () {
                         company: company
                     })
                 }}/>
-            <h3>Job Location</h3>
+            <h3>Job Location *</h3>
             <input value={jobData.location} onChange={(e) => {
                     const location = e.target.value;
                     setJobData({
@@ -41,7 +50,7 @@ export default function CreateJob () {
                         location: location
                     })
                 }}/>
-            <h3>Job Description</h3>
+            <h3>Job Description *</h3>
             <textarea value={jobData.description} onChange={(e) => {
                     const description = e.target.value;
                     setJobData({
@@ -49,7 +58,7 @@ export default function CreateJob () {
                         description: description
                     })
                 }}/>
-            <h3>Email</h3>
+            <h3>Email *</h3>
             <input type='email' value={jobData.email} onChange={(e) => {
                     const email = e.target.value;
                     setJobData({
@@ -78,7 +87,10 @@ export default function CreateJob () {
                             .catch(error => console.error(error));
                         window.location.replace("/jobDetails/" + jobId);
                     })
-                    .catch(error => console.error(error));
+                    .catch(error => {
+                        console.error(error)
+                        alert("Missing required information!");
+                    });
                 
             }}>Create Job</button>
         </div>

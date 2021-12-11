@@ -59,14 +59,6 @@ export default function Login() {
                         });
                 }}
             >Register</button>
-
-            {/* <button
-                onClick={() => {
-                    axios.get('/api/user/whoIsLoggedIn', userData)
-                        .then(response => console.log(response))
-                        .catch(error => console.log(error));
-                }}
-            >Who is logged in</button> */}
         </div>
     );
 }
