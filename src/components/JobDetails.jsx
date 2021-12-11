@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import "../styles/JobDetails.css";
 
 export default function JobDetails () {
@@ -94,9 +95,7 @@ export default function JobDetails () {
             <p>Date Posted: {selectedJob.date}</p>
             {userName && created &&
                 <div class="loggedInEditAndDelete">
-                    <button onClick={() => {
-
-                    }}>Edit</button>
+                    <button onClick={() => window.location.replace("/edit_job/" + jobId)}>Edit</button>
                     <button onClick={() => {
                         axios.delete('/api/job/deleteJobById/' + jobId)
                             .then(response => {
