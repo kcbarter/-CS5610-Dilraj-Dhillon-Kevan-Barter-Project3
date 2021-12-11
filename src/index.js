@@ -8,6 +8,7 @@ import JobSearch from './components/JobSearch.jsx';
 import Navbar from './components/Navbar.jsx';
 import Login from './components/Login.jsx';
 import Favorites from './components/Favorites.jsx';
+import CreateJob from './components/CreateJob.jsx';
 
 ReactDOM.render(
   <Router>
@@ -19,7 +20,8 @@ ReactDOM.render(
       <Route path="/jobDetails/:jobId" element={<JobDetails />} />
       <Route path="/login" element={<Login />} />
       <Route path="/favorites/:userName" element={<Favorites />} />
-    </Routes>
+      <Route path="/create_job" element={<CreateJob />} />
+    </Routes> 
   </Router>
   ,
   document.getElementById('root')

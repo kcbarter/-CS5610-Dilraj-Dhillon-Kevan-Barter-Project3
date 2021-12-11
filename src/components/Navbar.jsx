@@ -33,6 +33,9 @@ export default function Navbar() {
                         window.location.replace("/");
                     }}
                 >Logout</button>
+                <button id="createJob">
+                    <Link id="createJobLink" exact to="/create_job">Create Job</Link>
+                </button>
             </div>
         )
     }

@@ -32,4 +32,15 @@
 
 #logout:hover{
     color: lightblue;
+    cursor: pointer;
+}
+
+.navbarContainer #createJob{
+    background-color: lightblue;
+    font-size: .9em;
+}
+
+#createJobLink{
+    text-decoration: none;
+    color: black;
 }
