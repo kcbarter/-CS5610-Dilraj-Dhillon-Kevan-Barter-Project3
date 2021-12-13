@@ -14,7 +14,7 @@ export default function JobDetails () {
 
 
     function findJob() {
-        axios.get('http://localhost:8000/api/job/findJobById/' + jobId)
+        axios.get('/api/job/findJobById/' + jobId)
             .then(response => {
                 setJob(response.data)
             })
