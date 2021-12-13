@@ -44,3 +44,33 @@
     text-decoration: none;
     color: black;
 }
+
+@media only screen and (max-width: 900px){
+    .navbarContainer{
+        display: grid;
+        text-align: center;
+        width: 100vw;
+        gap: 0;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        font-weight: bold;
+        font-size: 1em;
+        height: 10em;
+        clear: both;
+    }
+
+    .two{
+        display: grid;
+        text-align: center;
+        width: 100vw;
+        gap: 0;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        font-weight: bold;
+        font-size: 1em;
+        height: 3.5em;
+        clear: both;
+    }
+}

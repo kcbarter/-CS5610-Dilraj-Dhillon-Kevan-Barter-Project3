@@ -8,7 +8,6 @@ export default function JobSearch() {
 
   return (
     <div class="searchContainer">
-      {/* {errorMsg} */}
       <h1>Find a job in 30 Days!</h1>
       <input id="jobToSearch" type='text' value={formInput}
         onChange={(e) => {

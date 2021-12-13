@@ -1,12 +1,11 @@
 .searchContainer{
-    position: absolute;
-    left: 40%;
-    top: 10%;
+    /* position: absolute; */
+    margin-left: 40vw;
 }
 
-.searchContainer h1{
+/* .searchContainer h1{
     text-align: center;
-}
+} */
 
 #jobToSearch{
     height: 2em;

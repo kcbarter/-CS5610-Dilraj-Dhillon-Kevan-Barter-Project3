@@ -42,7 +42,7 @@ export default function Navbar() {
     }
     else {
         return (
-            <div class="navbarContainer">
+            <div class="navbarContainer two">
                 <Link exact to="/">Home Page</Link>
                 <Link exact to="/login">Log In</Link>
             </div>
