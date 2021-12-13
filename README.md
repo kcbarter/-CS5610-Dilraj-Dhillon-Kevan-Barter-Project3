@@ -6,11 +6,6 @@ In the project directory, you can run:
 
 Runs the React App and the Node server
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
 ### `nodemon server`
 
 Runs api server. \
@@ -25,3 +20,14 @@ Port: 27017
 
 Runs database server on user created path. \
 Port: 27017
+
+## Setup
+
+### Mongo Atlas
+
+Don't forget to set MONGODB_URI env variable if connecting to remote database
+
+### Installations
+
+`npm install`
+`npm install -g nodemon concurrently`

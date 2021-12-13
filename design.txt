@@ -22,3 +22,15 @@
 		jobs: title, company, location, description, email, website, date
 		users: username, password, [favorite id], [created id]
 	front end
+		* login: username password form
+		* login: login + register separate buttons, register also logs in
+		* login: login/register errors
+		* login: successful login/register redirect to home page
+		your jobs page: if logged in, your jobs in navbar
+		your jobs page: create button, shows all your jobs
+		edit/create job page: filled out form for edit, empty form for creating
+		edit/create job page: once job edited/created redirect to job detail page
+		favorites: if logged in favorites in navbar, similar to search results
+		job details: if logged out and click favorite, redirect to login/registration
+		job details: if logged in and click favorite, add favorite to user
+		job details: if logged in, edit/delete button
