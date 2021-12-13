@@ -10,7 +10,8 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo');
 
 //Setup MongoDB Connection
-const mongoString = 'mongodb://127.0.0.1:27017/job_app'
+// const mongoString = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/job_app'
+const mongoString = 'mongodb+srv://Kevan:Kevan@jobapp.jidqa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(mongoString, { useNewUrlParser: true })
 const mongoDB = mongoose.connection;
 mongoDB.on('error', console.error.bind(console, 'Error connecting to MongoDB:'));
@@ -34,6 +35,6 @@ app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-app.listen(8000, function () {
+app.listen(process.env.PORT || 8000, function () {
     console.log('Starting server');
 });
