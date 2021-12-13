@@ -28,9 +28,9 @@ export default function Navbar() {
                         axios.delete('/api/user/logOut')
                             .then(response => {
                                 console.log(response);
+                                setUserName(response.data);
                             })
                             .catch(error => console.log(error));
-                        setUserName('');
                         window.location.replace("/");
                     }}
                 >Logout</button>
