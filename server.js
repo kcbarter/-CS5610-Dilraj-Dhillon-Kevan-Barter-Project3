@@ -10,8 +10,8 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo');
 
 //Setup MongoDB Connection
-// const mongoString = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/job_app'
-const mongoString = 'mongodb+srv://Kevan:Kevan@jobapp.jidqa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const mongoString = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/job_app'
+// const mongoString = 'mongodb+srv://Kevan:Kevan@jobapp.jidqa.mongodb.net/job_app?retryWrites=true&w=majority'
 mongoose.connect(mongoString, { useNewUrlParser: true })
 const mongoDB = mongoose.connection;
 mongoDB.on('error', console.error.bind(console, 'Error connecting to MongoDB:'));
