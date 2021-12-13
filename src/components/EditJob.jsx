@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import "../styles/CreateJob.css";
+import "../styles/Edit.css";
 
 export default function EditJob () {
     let { jobId } = useParams();

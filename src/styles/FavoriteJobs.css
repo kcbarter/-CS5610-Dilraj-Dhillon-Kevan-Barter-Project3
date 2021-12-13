@@ -7,6 +7,7 @@
 #favoriteJobs{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .basicJobInfo {
