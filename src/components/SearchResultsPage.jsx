@@ -12,14 +12,14 @@ export default function SearchResultsPage() {
 
     function findAllJobs() {
         if(jobToSearch === undefined){
-            axios.get('http://localhost:8000/api/job/findAllJobs')
+            axios.get('/api/job/findAllJobs')
             .then(response => {
                 setAllJobs(response.data)
             })
             .catch(error => console.error(error));
         }
         else{
-            axios.get('http://localhost:8000/api/job/findJobsByTitle/' + jobToSearch)
+            axios.get('/api/job/findJobsByTitle/' + jobToSearch)
                 .then(response => {
                     setAllJobs(response.data)
                 })
