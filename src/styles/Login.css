@@ -1,6 +1,5 @@
 .loginContainer{
-    position: absolute;
-    left: 40%;
+    margin-left: 40vw;
 }
 
 .loginContainer input{
@@ -16,4 +15,11 @@
     padding: .5em;
     margin-right: 1.2em;
     margin-left: 2em;
+}
+
+@media only screen and (max-width: 900px){
+    .loginContainer{
+        margin-left: 10vw;
+    }
+    
 }
