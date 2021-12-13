@@ -39,7 +39,7 @@ export default function YourJobs() {
     if (created.length === 0) {
         return (
             <div>
-                <h1>You don't have any favorite Jobs yet!</h1>
+                <h1>You don't have any Created Jobs yet!</h1>
             </div>
         )
     }
