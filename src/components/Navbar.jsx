@@ -29,9 +29,9 @@ export default function Navbar() {
                             .then(response => {
                                 console.log(response);
                                 setUserName(response.data);
+                                window.location.replace("/");
                             })
                             .catch(error => console.log(error));
-                        window.location.replace("/");
                     }}
                 >Logout</button>
                 <button id="createJob">
